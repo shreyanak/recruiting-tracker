@@ -8,8 +8,9 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
 import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
+var counter = 0
 
-export default function FormDialog({onCardToggle}) {
+function FormDialog({ onCardToggle }: { onCardToggle: () => void }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -19,12 +20,13 @@ export default function FormDialog({onCardToggle}) {
   const handleClose = () => {
     setOpen(false);
   };
-
+  
   const handleAdd = () => {
-    onCardToggle()
-    handleClose()
-  }
-
+    counter += 1
+    onCardToggle();
+    handleClose();
+  };
+  console.log(counter)
   return (
     <React.Fragment>
       <IconButton onClick={handleClickOpen}>
@@ -51,3 +53,4 @@ export default function FormDialog({onCardToggle}) {
     </React.Fragment>
   );
 }
+export default FormDialog

@@ -7,13 +7,20 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import FormDialog from "./FormDialog";
+import OutlinedCard from "./Card";
 
 export default function Columns() {
-  const [isCardVisible, setCardVisible] = React.useState(false);
+  const [isAcceptedCardVisible, setAcceptedCardVisible] = React.useState(false);
+  const [isRejectedCardVisible, setRejectedCardVisible] = React.useState(false)
 
-  const toggleCardVisibility = () => {
-    setCardVisible(!isCardVisible);
+  const toggleAcceptedCardVisibility = () => {
+    setAcceptedCardVisible(!isAcceptedCardVisible);
   };
+
+  const toggleRejectedCardVisibility = () => {
+    setRejectedCardVisible(!isRejectedCardVisible);
+  };
+
   return (
     <Container
       sx={{
@@ -33,13 +40,14 @@ export default function Columns() {
                   color="text.secondary"
                   gutterBottom
                 >
-                  Accepted
+                  Applied
                 </Typography>
               </CardContent>
               <CardActions>
-                <FormDialog onCardToggle={ toggleCardVisibility} />
+                <FormDialog onCardToggle={toggleAcceptedCardVisibility} />
               </CardActions>
             </Stack>
+            {isAcceptedCardVisible && <OutlinedCard />}
           </Card>
         </Stack>
         <Stack direction="column" spacing={2}>
@@ -55,9 +63,10 @@ export default function Columns() {
                 </Typography>
               </CardContent>
               <CardActions>
-                <FormDialog onCardToggle={toggleCardVisibility}/>
+                <FormDialog onCardToggle={toggleRejectedCardVisibility} />
               </CardActions>
             </Stack>
+            {isRejectedCardVisible && <OutlinedCard />}
           </Card>
         </Stack>
       </Stack>
