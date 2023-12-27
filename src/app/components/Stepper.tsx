@@ -5,28 +5,25 @@ import Step from "@mui/material/Step";
 import Typography from "@mui/material/Typography";
 import { IconButton } from "@mui/material";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
-
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const steps = ["Online Assesment ", "Interview", "Final Round", "Offer"];
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set<number>());
-  const [clicked, setClicked] = React.useState(false);
+    const [clicked, setClicked] = React.useState(false);
 
-  const isClicked = (event: any) => {
+
+  const isClicked = () => {
       setClicked(!clicked)
-      changeColor(event)
       
   };
 
   const isStepSkipped = (step: number) => {
     return skipped.has(step);
   };
-    
-    const changeColor = (event: any) => {
-        event.target.style.color = 'blue'
-    }
+
 
   const handleNext = () => {
     let newSkipped = skipped;
@@ -54,8 +51,13 @@ export default function HorizontalLinearStepper() {
           return (
             <Step key={label} {...stepProps}>
               <IconButton onClick={isClicked}>
-                <RadioButtonUncheckedIcon></RadioButtonUncheckedIcon>
+                {clicked ? (
+                  <CheckCircleIcon sx={{ color: "#a5d6a7" }} />
+                ) : (
+                  <RadioButtonUncheckedIcon />
+                )}
               </IconButton>
+
               <Typography
                 style={{ textAlign: "center", fontSize: 14 }}
                 color="text.secondary"

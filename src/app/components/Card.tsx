@@ -5,8 +5,8 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import HorizontalLinearStepper from "./Stepper";
-import { IconButton, Stack } from "@mui/material";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import { Button, IconButton, Stack } from "@mui/material";
+import DropDown from "./DropDown";
 
 export default function OutlinedCard({ name }: { name: string }, { position }: { position: string }) {
 
@@ -46,13 +46,12 @@ export default function OutlinedCard({ name }: { name: string }, { position }: {
             {position}
           </Typography>
           <HorizontalLinearStepper />
-          <Box sx={{ display: "flex" }}>
-            <IconButton sx={{ marginLeft: "auto" }}>
-              <DeleteOutlineIcon />
-            </IconButton>
-          </Box>
         </CardContent>
-        <CardActions></CardActions>
+        <CardActions>
+          <DropDown />
+          <Stack direction={"row"}>
+          </Stack>
+        </CardActions>
       </Card>
     </Box>
   );
