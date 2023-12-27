@@ -8,10 +8,10 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
 import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
-var counter = 0
 
 function FormDialog({ onCardToggle }: { onCardToggle: () => void }) {
   const [open, setOpen] = React.useState(false);
+  const [state, setState] = React.useState("");
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -20,13 +20,12 @@ function FormDialog({ onCardToggle }: { onCardToggle: () => void }) {
   const handleClose = () => {
     setOpen(false);
   };
-  
+
   const handleAdd = () => {
-    counter += 1
     onCardToggle();
     handleClose();
   };
-  console.log(counter)
+
   return (
     <React.Fragment>
       <IconButton onClick={handleClickOpen}>
@@ -40,9 +39,26 @@ function FormDialog({ onCardToggle }: { onCardToggle: () => void }) {
             autoFocus
             margin="dense"
             id="name"
-            type="email"
+            type="text"
             fullWidth
             variant="standard"
+            value={state}
+            onChange={(event) => {
+              setState(event.target.value);
+            }}
+          />
+          <DialogContentText>Position</DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            type="text"
+            fullWidth
+            variant="standard"
+            value={state}
+            onChange={(event) => {
+              setState(event.target.value);
+            }}
           />
         </DialogContent>
         <DialogActions>
@@ -53,4 +69,4 @@ function FormDialog({ onCardToggle }: { onCardToggle: () => void }) {
     </React.Fragment>
   );
 }
-export default FormDialog
+export default FormDialog;
