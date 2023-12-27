@@ -6,10 +6,14 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import HorizontalLinearStepper from "./Stepper";
 import { Button, IconButton, Stack } from "@mui/material";
-import DropDown from "./DropDown";
+import AppliedButton from "./AppliedButton";
 
-export default function OutlinedCard({ name }: { name: string }, { position }: { position: string }) {
+interface OutlinedCardProps {
+  name: string;
+  position: string;
+}
 
+const OutlinedCard: React.FC<OutlinedCardProps> = ({ name, position }) => {
   const current = new Date();
   const date = `${
     current.getMonth() + 1
@@ -36,7 +40,7 @@ export default function OutlinedCard({ name }: { name: string }, { position }: {
             </Typography>
           </Stack>
 
-          <Typography variant="h5" component="div">
+          <Typography variant="h6" color="text.secondary" component="div">
             {name}
           </Typography>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -48,11 +52,12 @@ export default function OutlinedCard({ name }: { name: string }, { position }: {
           <HorizontalLinearStepper />
         </CardContent>
         <CardActions>
-          <DropDown />
-          <Stack direction={"row"}>
-          </Stack>
+          <AppliedButton />
+          <Stack direction={"row"}></Stack>
         </CardActions>
       </Card>
     </Box>
   );
-}
+};
+
+export default OutlinedCard

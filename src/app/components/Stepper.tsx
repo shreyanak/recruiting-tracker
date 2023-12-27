@@ -20,25 +20,6 @@ export default function HorizontalLinearStepper() {
       
   };
 
-  const isStepSkipped = (step: number) => {
-    return skipped.has(step);
-  };
-
-
-  const handleNext = () => {
-    let newSkipped = skipped;
-    if (isStepSkipped(activeStep)) {
-      newSkipped = new Set(newSkipped.values());
-      newSkipped.delete(activeStep);
-    }
-
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped(newSkipped);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -50,7 +31,7 @@ export default function HorizontalLinearStepper() {
           } = {};
           return (
             <Step key={label} {...stepProps}>
-              <IconButton onClick={isClicked}>
+                  <IconButton sx={{marginLeft:'147px', marginTop: '-8.5px'}} onClick={isClicked}>
                 {clicked ? (
                   <CheckCircleIcon sx={{ color: "#a5d6a7" }} />
                 ) : (

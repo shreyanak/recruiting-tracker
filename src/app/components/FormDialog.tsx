@@ -9,12 +9,18 @@ import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
 import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
 
-function FormDialog({ onCardToggle }: { onCardToggle: () => void }) {
+interface FormDialogProps {
+  onCardToggle: (name: string, state: string) => any;
+}
+function FormDialog({ onCardToggle}: FormDialogProps) {
   const [open, setOpen] = React.useState(false);
   const [state, setState] = React.useState("");
+  const [name, setName] = React.useState("")
 
   const handleClickOpen = () => {
     setOpen(true);
+    setName('')
+    setState('')
   };
 
   const handleClose = () => {
@@ -22,7 +28,7 @@ function FormDialog({ onCardToggle }: { onCardToggle: () => void }) {
   };
 
   const handleAdd = () => {
-    onCardToggle();
+    onCardToggle(name, state);
     handleClose();
   };
 
@@ -41,23 +47,25 @@ function FormDialog({ onCardToggle }: { onCardToggle: () => void }) {
             id="name"
             type="text"
             fullWidth
+            placeholder="Name"
             variant="standard"
-            value={state}
+            value={name}
             onChange={(event) => {
-              setState(event.target.value);
+              setName(event.target.value);
             }}
           />
           <DialogContentText>Position</DialogContentText>
           <TextField
             autoFocus
             margin="dense"
-            id="name"
+            id="pos"
             type="text"
+            placeholder="Position"
             fullWidth
             variant="standard"
             value={state}
             onChange={(event) => {
-              setState(event.target.value);
+            setState(event.target.value);
             }}
           />
         </DialogContent>
