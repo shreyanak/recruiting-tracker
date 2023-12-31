@@ -25,7 +25,7 @@ const OutlinedCard: React.FC<OutlinedCardProps> = ({ name, position , id, state,
 
   return (
     <Box sx={{ minWidth: 275 }}>
-      <Card sx={{ minWidth: 500, maxHeight: 260 }} variant="outlined">
+      <Card sx={{ minWidth: 500, maxHeight: 265 }} variant="outlined">
         <CardContent>
           <Stack direction="row">
             <Typography

@@ -7,7 +7,8 @@ export default function ProgressBar() {
    
 
     return (
-      <Box sx={{ width: "100%", backgroundColor: "gray", height: "1px" }}>
-      </Box>
+      <Box
+        sx={{ width: "100%", backgroundColor: "gray", height: "1px" }}
+      ></Box>
     );
 }

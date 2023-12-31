@@ -19,7 +19,7 @@ export default function HorizontalLinearStepper() {
     <Stack direction="row">
       <div>
         <IconButton
-          sx={{ marginTop: "-12px", marginLeft: "100px" }}
+          sx={{ marginTop: "-12px", marginLeft: "160px" }}
           onClick={() => handleClick(setClicked1)}
         >
           {clicked1 ? (
@@ -29,7 +29,7 @@ export default function HorizontalLinearStepper() {
           )}
         </IconButton>
         <Typography
-          sx={{ marginTop: "10px", marginLeft: "50px" }}
+          sx={{ marginTop: "10px", marginLeft: "120px" }}
           color="text.secondary"
           gutterBottom
         >
@@ -86,7 +86,7 @@ export default function HorizontalLinearStepper() {
       </div>
       <div>
         <IconButton
-          sx={{ marginTop: "-12px", marginLeft: "300px" }}
+          sx={{ marginTop: "-12px", marginLeft: "240px" }}
           onClick={() => handleClick(setClicked4)}
         >
           {clicked4 ? (
@@ -96,12 +96,12 @@ export default function HorizontalLinearStepper() {
           )}
         </IconButton>
         <Box
-          sx={{ marginTop: "-23px", marginRight: "35px", marginLeft: "-40px" }}
+          sx={{ marginTop: "-23px", marginRight: "40px", marginLeft: "-35px" }}
         >
           {clicked4 && <ProgressBar />}
         </Box>
         <Typography
-          sx={{ marginTop: "30px", marginLeft: "305px" }}
+          sx={{ marginTop: "30px", marginLeft: "245px" }}
           color="text.secondary"
           gutterBottom
         >
