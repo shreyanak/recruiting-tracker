@@ -5,15 +5,19 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import HorizontalLinearStepper from "./Stepper";
-import { Button, IconButton, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import AppliedButton from "./AppliedButton";
+import DeleteButton from "./Delete";
 
 interface OutlinedCardProps {
   name: string;
   position: string;
+  id: number;
+  state: any;
+  func: any;
 }
 
-const OutlinedCard: React.FC<OutlinedCardProps> = ({ name, position }) => {
+const OutlinedCard: React.FC<OutlinedCardProps> = ({ name, position , id, state, func}) => {
   const current = new Date();
   const date = `${
     current.getMonth() + 1
@@ -38,6 +42,7 @@ const OutlinedCard: React.FC<OutlinedCardProps> = ({ name, position }) => {
             >
               {date}
             </Typography>
+            <DeleteButton id={id} state={state} func={func } />
           </Stack>
 
           <Typography variant="h6" color="text.secondary" component="div">
@@ -52,8 +57,9 @@ const OutlinedCard: React.FC<OutlinedCardProps> = ({ name, position }) => {
           <HorizontalLinearStepper />
         </CardContent>
         <CardActions>
+          <Stack direction={"row"}>
           <AppliedButton />
-          <Stack direction={"row"}></Stack>
+          </Stack>
         </CardActions>
       </Card>
     </Box>

@@ -1,55 +1,163 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
 import Typography from "@mui/material/Typography";
-import { IconButton } from "@mui/material";
+import { Box, IconButton, Stack } from "@mui/material";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-
-const steps = ["Online Assesment ", "Interview", "Final Round", "Offer"];
+import ProgressBar from "./ProgressBar";
 
 export default function HorizontalLinearStepper() {
-  const [activeStep, setActiveStep] = React.useState(0);
-  const [skipped, setSkipped] = React.useState(new Set<number>());
-    const [clicked, setClicked] = React.useState(false);
+  const [clicked1, setClicked1] = React.useState(false);
+  const [clicked2, setClicked2] = React.useState(false);
+  const [clicked3, setClicked3] = React.useState(false);
+  const [clicked4, setClicked4] = React.useState(false);
 
-
-  const isClicked = () => {
-      setClicked(!clicked)
-      
+  const click1 = () => {
+    setClicked1(!clicked1);
   };
 
+  const click2 = () => {
+    setClicked2(!clicked2);
+  };
+
+  const click3 = () => {
+    setClicked3(!clicked3);
+  };
+
+   const click4 = () => {
+     setClicked4(!clicked4);
+   };
 
   return (
-    <Box sx={{ width: "100%" }}>
-      <Stepper activeStep={activeStep} alternativeLabel>
-        {steps.map((label, index) => {
-          const stepProps: { completed?: boolean } = {};
-          const labelProps: {
-            optional?: React.ReactNode;
-          } = {};
-          return (
-            <Step key={label} {...stepProps}>
-                  <IconButton sx={{marginLeft:'147px', marginTop: '-8.5px'}} onClick={isClicked}>
-                {clicked ? (
-                  <CheckCircleIcon sx={{ color: "#a5d6a7" }} />
-                ) : (
-                  <RadioButtonUncheckedIcon />
-                )}
-              </IconButton>
-
-              <Typography
-                style={{ textAlign: "center", fontSize: 14 }}
-                color="text.secondary"
-                gutterBottom
-              >
-                {label}
-              </Typography>
-            </Step>
-          );
-        })}
-          </Stepper>
-    </Box>
+    <Stack direction="row">
+      <div>
+        {clicked1 ? (
+          <IconButton
+            sx={{ marginTop: "-12px", marginLeft: "100px" }}
+            onClick={click1}
+          >
+            <CheckCircleIcon sx={{ color: "#a5d6a7" }} />
+          </IconButton>
+        ) : (
+          <IconButton
+            sx={{ marginTop: "-12px", marginLeft: "100px" }}
+            onClick={click1}
+          >
+            <RadioButtonUncheckedIcon />
+          </IconButton>
+        )}
+        <Typography
+          sx={{ marginTop: "10px", marginLeft: "50px" }}
+          color="text.secondary"
+          gutterBottom
+        >
+          Online Assesment
+        </Typography>
+      </div>
+      <div>
+        {clicked2 ? (
+          <>
+            <IconButton
+              sx={{ marginTop: "-12px", marginLeft: "300px" }}
+              onClick={click2}
+            >
+              <CheckCircleIcon sx={{ color: "#a5d6a7" }} />
+            </IconButton>
+            <Box
+              sx={{
+                marginTop: "-23px",
+                marginRight: "55px",
+                marginLeft: "-40px",
+              }}
+            >
+              <ProgressBar />
+            </Box>
+          </>
+        ) : (
+          <IconButton
+            sx={{ marginTop: "-12px", marginLeft: "300px" }}
+            onClick={click2}
+          >
+            <RadioButtonUncheckedIcon />
+          </IconButton>
+        )}
+        <Typography
+          sx={{ marginTop: "10px", marginLeft: "285px" }}
+          color="text.secondary"
+          gutterBottom
+        >
+          Interview
+        </Typography>
+      </div>
+      <div>
+        {clicked3 ? (
+          <>
+            <IconButton
+              sx={{ marginTop: "-12px", marginLeft: "300px" }}
+              onClick={click3}
+            >
+              <CheckCircleIcon sx={{ color: "#a5d6a7" }} />
+            </IconButton>
+            <Box
+              sx={{
+                marginTop: "-23px",
+                marginRight: "70px",
+                marginLeft: "-15px",
+              }}
+            >
+              <ProgressBar />
+            </Box>
+          </>
+        ) : (
+          <IconButton
+            sx={{ marginTop: "-12px", marginLeft: "300px" }}
+            onClick={click3}
+          >
+            <RadioButtonUncheckedIcon />
+          </IconButton>
+        )}
+        <Typography
+          sx={{ marginTop: "10px", marginLeft: "285px" }}
+          color="text.secondary"
+          gutterBottom
+        >
+          Final Round
+        </Typography>
+      </div>
+      <div>
+        {clicked4 ? (
+          <>
+            <IconButton
+              sx={{ marginTop: "-12px", marginLeft: "300px" }}
+              onClick={click4}
+            >
+              <CheckCircleIcon sx={{ color: "#a5d6a7" }} />
+            </IconButton>
+            <Box
+              sx={{
+                marginTop: "-23px",
+                marginRight: "35px",
+                marginLeft: "-40px",
+              }}
+            >
+              <ProgressBar />
+            </Box>
+          </>
+        ) : (
+          <IconButton
+            sx={{ marginTop: "-12px", marginLeft: "300px" }}
+            onClick={click4}
+          >
+            <RadioButtonUncheckedIcon />
+          </IconButton>
+        )}
+        <Typography
+          sx={{ marginTop: "10px", marginLeft: "305px" }}
+          color="text.secondary"
+          gutterBottom
+        >
+          Offer
+        </Typography>
+      </div>
+    </Stack>
   );
 }

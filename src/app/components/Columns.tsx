@@ -21,6 +21,7 @@ export default function Columns() {
     setAcceptedCardVisible((prevCards) => [...prevCards, newCard]);
   };
 
+  const copyOfAcceptedCardVisible = [...isAcceptedCardVisible];
 
   return (
     <Stack direction="column" spacing={2}>
@@ -35,14 +36,19 @@ export default function Columns() {
           </Typography>
         </CardContent>
         <CardActions>
-          <FormDialog
-            onCardToggle={toggleAcceptedCardVisibility}
-          />
+          <FormDialog onCardToggle={toggleAcceptedCardVisibility} />
           <Filter />
         </CardActions>
       </Stack>
       {isAcceptedCardVisible.map((card) => (
-        <OutlinedCard name={card.name} position={card.state} key={card.id} />
+        <OutlinedCard
+          name={card.name}
+          position={card.state}
+          key={card.id}
+          id={card.id}
+          state={copyOfAcceptedCardVisible}
+          func={setAcceptedCardVisible}
+        />
       ))}
     </Stack>
   );
