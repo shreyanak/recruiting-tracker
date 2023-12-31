@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Typography from "@mui/material/Typography";
 import { Box, IconButton, Stack } from "@mui/material";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
@@ -11,40 +11,23 @@ export default function HorizontalLinearStepper() {
   const [clicked3, setClicked3] = React.useState(false);
   const [clicked4, setClicked4] = React.useState(false);
 
-  const click1 = () => {
-    setClicked1(!clicked1);
+  const handleClick = (setter: any) => {
+    setter((prev: any) => !prev);
   };
-
-  const click2 = () => {
-    setClicked2(!clicked2);
-  };
-
-  const click3 = () => {
-    setClicked3(!clicked3);
-  };
-
-   const click4 = () => {
-     setClicked4(!clicked4);
-   };
 
   return (
     <Stack direction="row">
       <div>
-        {clicked1 ? (
-          <IconButton
-            sx={{ marginTop: "-12px", marginLeft: "100px" }}
-            onClick={click1}
-          >
+        <IconButton
+          sx={{ marginTop: "-12px", marginLeft: "100px" }}
+          onClick={() => handleClick(setClicked1)}
+        >
+          {clicked1 ? (
             <CheckCircleIcon sx={{ color: "#a5d6a7" }} />
-          </IconButton>
-        ) : (
-          <IconButton
-            sx={{ marginTop: "-12px", marginLeft: "100px" }}
-            onClick={click1}
-          >
+          ) : (
             <RadioButtonUncheckedIcon />
-          </IconButton>
-        )}
+          )}
+        </IconButton>
         <Typography
           sx={{ marginTop: "10px", marginLeft: "50px" }}
           color="text.secondary"
@@ -54,34 +37,23 @@ export default function HorizontalLinearStepper() {
         </Typography>
       </div>
       <div>
-        {clicked2 ? (
-          <>
-            <IconButton
-              sx={{ marginTop: "-12px", marginLeft: "300px" }}
-              onClick={click2}
-            >
-              <CheckCircleIcon sx={{ color: "#a5d6a7" }} />
-            </IconButton>
-            <Box
-              sx={{
-                marginTop: "-23px",
-                marginRight: "55px",
-                marginLeft: "-40px",
-              }}
-            >
-              <ProgressBar />
-            </Box>
-          </>
-        ) : (
-          <IconButton
-            sx={{ marginTop: "-12px", marginLeft: "300px" }}
-            onClick={click2}
-          >
+        <IconButton
+          sx={{ marginTop: "-12px", marginLeft: "300px" }}
+          onClick={() => handleClick(setClicked2)}
+        >
+          {clicked2 ? (
+            <CheckCircleIcon sx={{ color: "#a5d6a7" }} />
+          ) : (
             <RadioButtonUncheckedIcon />
-          </IconButton>
-        )}
+          )}
+        </IconButton>
+        <Box
+          sx={{ marginTop: "-23px", marginRight: "55px", marginLeft: "-40px" }}
+        >
+          {clicked2 && <ProgressBar />}
+        </Box>
         <Typography
-          sx={{ marginTop: "10px", marginLeft: "285px" }}
+          sx={{ marginTop: "30px", marginLeft: "285px" }}
           color="text.secondary"
           gutterBottom
         >
@@ -89,34 +61,23 @@ export default function HorizontalLinearStepper() {
         </Typography>
       </div>
       <div>
-        {clicked3 ? (
-          <>
-            <IconButton
-              sx={{ marginTop: "-12px", marginLeft: "300px" }}
-              onClick={click3}
-            >
-              <CheckCircleIcon sx={{ color: "#a5d6a7" }} />
-            </IconButton>
-            <Box
-              sx={{
-                marginTop: "-23px",
-                marginRight: "70px",
-                marginLeft: "-15px",
-              }}
-            >
-              <ProgressBar />
-            </Box>
-          </>
-        ) : (
-          <IconButton
-            sx={{ marginTop: "-12px", marginLeft: "300px" }}
-            onClick={click3}
-          >
+        <IconButton
+          sx={{ marginTop: "-12px", marginLeft: "300px" }}
+          onClick={() => handleClick(setClicked3)}
+        >
+          {clicked3 ? (
+            <CheckCircleIcon sx={{ color: "#a5d6a7" }} />
+          ) : (
             <RadioButtonUncheckedIcon />
-          </IconButton>
-        )}
+          )}
+        </IconButton>
+        <Box
+          sx={{ marginTop: "-23px", marginRight: "70px", marginLeft: "-15px" }}
+        >
+          {clicked3 && <ProgressBar />}
+        </Box>
         <Typography
-          sx={{ marginTop: "10px", marginLeft: "285px" }}
+          sx={{ marginTop: "30px", marginLeft: "285px" }}
           color="text.secondary"
           gutterBottom
         >
@@ -124,34 +85,23 @@ export default function HorizontalLinearStepper() {
         </Typography>
       </div>
       <div>
-        {clicked4 ? (
-          <>
-            <IconButton
-              sx={{ marginTop: "-12px", marginLeft: "300px" }}
-              onClick={click4}
-            >
-              <CheckCircleIcon sx={{ color: "#a5d6a7" }} />
-            </IconButton>
-            <Box
-              sx={{
-                marginTop: "-23px",
-                marginRight: "35px",
-                marginLeft: "-40px",
-              }}
-            >
-              <ProgressBar />
-            </Box>
-          </>
-        ) : (
-          <IconButton
-            sx={{ marginTop: "-12px", marginLeft: "300px" }}
-            onClick={click4}
-          >
+        <IconButton
+          sx={{ marginTop: "-12px", marginLeft: "300px" }}
+          onClick={() => handleClick(setClicked4)}
+        >
+          {clicked4 ? (
+            <CheckCircleIcon sx={{ color: "#a5d6a7" }} />
+          ) : (
             <RadioButtonUncheckedIcon />
-          </IconButton>
-        )}
+          )}
+        </IconButton>
+        <Box
+          sx={{ marginTop: "-23px", marginRight: "35px", marginLeft: "-40px" }}
+        >
+          {clicked4 && <ProgressBar />}
+        </Box>
         <Typography
-          sx={{ marginTop: "10px", marginLeft: "305px" }}
+          sx={{ marginTop: "30px", marginLeft: "305px" }}
           color="text.secondary"
           gutterBottom
         >
@@ -161,3 +111,4 @@ export default function HorizontalLinearStepper() {
     </Stack>
   );
 }
+
