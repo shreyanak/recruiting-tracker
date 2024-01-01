@@ -17,6 +17,10 @@ function FormDialog({ onCardToggle}: FormDialogProps) {
   const [state, setState] = React.useState("");
   const [name, setName] = React.useState("")
 
+  // const saveJSON = (jsonData, 'data.json') {
+
+  // }
+
   const handleClickOpen = () => {
     setOpen(true);
     setName('')
@@ -29,6 +33,7 @@ function FormDialog({ onCardToggle}: FormDialogProps) {
 
   const handleAdd = () => {
     onCardToggle(name, state);
+    // saveJSON()
     handleClose();
   };
 

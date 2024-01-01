@@ -1,6 +1,5 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import LinearProgress from "@mui/material/LinearProgress";
 
 export default function ProgressBar() {
 
@@ -8,7 +7,7 @@ export default function ProgressBar() {
 
     return (
       <Box
-        sx={{ width: "100%", backgroundColor: "gray", height: "1px" }}
+        sx={{ width: "100%", backgroundColor: "#a5d6a7", height: "2px" }}
       ></Box>
     );
 }

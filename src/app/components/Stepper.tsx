@@ -3,7 +3,6 @@ import Typography from "@mui/material/Typography";
 import { Box, IconButton, Stack } from "@mui/material";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import ProgressBar from "./ProgressBar";
 
 export default function HorizontalLinearStepper() {
   const [clicked1, setClicked1] = React.useState(false);
@@ -19,7 +18,7 @@ export default function HorizontalLinearStepper() {
     <Stack direction="row">
       <div>
         <IconButton
-          sx={{ marginTop: "-12px", marginLeft: "160px" }}
+          sx={{ marginTop: "-12px", marginLeft: "170px" }}
           onClick={() => handleClick(setClicked1)}
         >
           {clicked1 ? (
@@ -50,7 +49,13 @@ export default function HorizontalLinearStepper() {
         <Box
           sx={{ marginTop: "-23px", marginRight: "55px", marginLeft: "-40px" }}
         >
-          {clicked2 && <ProgressBar />}
+          <Box
+            sx={{
+              width: "100%",
+              backgroundColor: clicked2 ? "#a5d6a7" : "gray",
+              height: clicked2 ? "2px" : "1px",
+            }}
+          ></Box>
         </Box>
         <Typography
           sx={{ marginTop: "30px", marginLeft: "285px" }}
@@ -74,7 +79,13 @@ export default function HorizontalLinearStepper() {
         <Box
           sx={{ marginTop: "-23px", marginRight: "70px", marginLeft: "-15px" }}
         >
-          {clicked3 && <ProgressBar />}
+          <Box
+            sx={{
+              width: "100%",
+              backgroundColor: clicked3 ? "#a5d6a7" : "gray",
+              height: clicked3 ? "2px" : "1px",
+            }}
+          ></Box>
         </Box>
         <Typography
           sx={{ marginTop: "30px", marginLeft: "285px" }}
@@ -98,7 +109,13 @@ export default function HorizontalLinearStepper() {
         <Box
           sx={{ marginTop: "-23px", marginRight: "40px", marginLeft: "-35px" }}
         >
-          {clicked4 && <ProgressBar />}
+          <Box
+            sx={{
+              width: "100%",
+              backgroundColor: clicked4 ? "#a5d6a7" : "gray",
+              height: clicked4 ? "2px" : "1px",
+            }}
+          ></Box>
         </Box>
         <Typography
           sx={{ marginTop: "30px", marginLeft: "245px" }}
